@@ -213,6 +213,69 @@ h1 {
   padding: 0 0 32px;
 }
 
+.footer nav {
+  display: flex;
+  gap: 18px;
+  margin-top: 14px;
+}
+
+.footer a,
+.back-link {
+  color: var(--blue);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footer a:hover,
+.footer a:focus-visible,
+.back-link:hover,
+.back-link:focus-visible {
+  text-decoration: underline;
+}
+
+.legal-page {
+  width: min(820px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 48px 0 24px;
+}
+
+.legal-page h1 {
+  max-width: none;
+  margin-top: 28px;
+  color: var(--ink);
+  font-size: clamp(3rem, 8vw, 5.8rem);
+}
+
+.legal-date {
+  margin: 18px 0 36px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.legal-page section {
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+}
+
+.legal-page h2 {
+  margin: 0 0 10px;
+  color: var(--blue);
+  font-size: 1.08rem;
+  line-height: 1.2;
+}
+
+.legal-page p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.legal-footer {
+  padding-top: 0;
+}
+
 @media (max-width: 820px) {
   .hero {
     min-height: 680px;
