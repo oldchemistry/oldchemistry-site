@@ -95,7 +95,8 @@ export async function onRequestPost({ request, env }) {
 
   const sentAt = new Date().toISOString();
   await sendAgentMail(env, {
-    to: "karen@oldchemistry.com",
+    to: "support@oldchemistry.com",
+    bcc: "karen@oldchemistry.com",
     subject: "[Website inquiry] " + subject,
     text: [
       "New Old Chemistry website inquiry",
