@@ -26,7 +26,9 @@
             qualification, prototype testing, packaging evaluation, and early
             operating systems before public launch.
           </p>
-          <a class="contact" href="mailto:info@oldchemistry.com">info@oldchemistry.com</a>
+          <button class="contact" type="button" data-contact-button>
+            <span data-contact-label>info [at] oldchemistry [dot] com</span>
+          </button>
         </div>
         <figure class="mark">
           <img
@@ -54,5 +56,22 @@
     <footer class="footer">
       <p>Old Chemistry is in early-stage development. Product details, availability, and operating plans may change before launch.</p>
     </footer>
+    <script>
+      (() => {
+        const button = document.querySelector('[data-contact-button]');
+        const label = document.querySelector('[data-contact-label]');
+        if (!button || !label) return;
+
+        const address = ['info', 'oldchemistry.com'].join('@');
+        button.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(address);
+            label.textContent = 'Email copied';
+          } catch {
+            label.textContent = address;
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
