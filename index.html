@@ -25,9 +25,6 @@
             We make new formulations by respecting old chemistry: simple inputs,
             disciplined testing, useful performance, and transparent decisions.
           </p>
-          <button class="contact" type="button" data-contact-button>
-            <span data-contact-label>info [at] oldchemistry [dot] com</span>
-          </button>
         </div>
       </section>
 
@@ -49,22 +46,5 @@
     <footer class="footer">
       <p>Old Chemistry develops household care products for modern homes with a bias toward useful, durable formulation.</p>
     </footer>
-    <script>
-      (() => {
-        const button = document.querySelector('[data-contact-button]');
-        const label = document.querySelector('[data-contact-label]');
-        if (!button || !label) return;
-
-        const address = ['info', 'oldchemistry.com'].join('@');
-        button.addEventListener('click', async () => {
-          try {
-            await navigator.clipboard.writeText(address);
-            label.textContent = 'Email copied';
-          } catch {
-            label.textContent = address;
-          }
-        });
-      })();
-    </script>
   </body>
 </html>
