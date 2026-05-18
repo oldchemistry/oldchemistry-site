@@ -1,11 +1,12 @@
 :root {
   color-scheme: light;
-  --ink: #23201c;
-  --muted: #665f55;
-  --paper: #fbfaf6;
-  --line: #d9d0bf;
-  --accent: #7b3328;
-  --accent-dark: #55251f;
+  --ink: #182027;
+  --muted: #5a646c;
+  --paper: #f7f7f3;
+  --line: #d2d8d9;
+  --accent: #8a3d31;
+  --accent-dark: #662c24;
+  --blue: #2d5366;
 }
 
 * {
@@ -16,7 +17,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .page {
@@ -24,25 +25,38 @@ body {
 }
 
 .hero {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.8fr);
-  align-items: center;
-  gap: clamp(28px, 5vw, 72px);
-  width: min(1120px, calc(100% - 40px));
-  min-height: 74vh;
-  margin: 0 auto;
-  padding: 44px 0 24px;
+  align-items: end;
+  min-height: min(760px, 82vh);
+  overflow: hidden;
+  background: #182027;
 }
 
 .copy {
-  max-width: 650px;
+  position: relative;
+  z-index: 2;
+  width: min(1120px, calc(100% - 40px));
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(84px, 12vh, 136px) 0 clamp(48px, 8vh, 76px);
+  color: #fffdf8;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(17, 23, 28, 0.88) 0%, rgba(17, 23, 28, 0.72) 38%, rgba(17, 23, 28, 0.2) 70%),
+    linear-gradient(0deg, rgba(17, 23, 28, 0.6) 0%, rgba(17, 23, 28, 0) 38%),
+    url("./assets/old-chemistry-corporate-lab-hero.png") center / cover no-repeat;
+  transform: scale(1.01);
 }
 
 .kicker {
   margin: 0 0 18px;
-  color: var(--accent);
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 0.78rem;
+  color: #d7b58c;
+  font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -50,26 +64,27 @@ body {
 
 h1 {
   margin: 0;
-  font-size: clamp(4.4rem, 12vw, 8.7rem);
+  max-width: 780px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.8rem, 10vw, 8.2rem);
   font-weight: 700;
-  line-height: 0.88;
+  line-height: 0.9;
   letter-spacing: 0;
 }
 
 .lede {
-  max-width: 610px;
+  max-width: 760px;
   margin: 28px 0 0;
-  font-size: clamp(1.35rem, 2.4vw, 2.1rem);
-  line-height: 1.14;
+  font-size: clamp(1.35rem, 2.3vw, 2.25rem);
+  line-height: 1.15;
 }
 
 .body {
-  max-width: 590px;
+  max-width: 640px;
   margin: 22px 0 0;
-  color: var(--muted);
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 1.02rem;
-  line-height: 1.62;
+  color: rgba(255, 253, 248, 0.78);
+  font-size: 1rem;
+  line-height: 1.65;
 }
 
 .contact {
@@ -79,10 +94,9 @@ h1 {
   padding: 0;
   margin-top: 28px;
   border: 0;
-  border-bottom: 2px solid var(--accent);
+  border-bottom: 2px solid #d7b58c;
   background: transparent;
-  color: var(--accent-dark);
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #fffdf8;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
@@ -90,20 +104,8 @@ h1 {
 }
 
 .contact:focus-visible {
-  outline: 3px solid rgba(123, 51, 40, 0.28);
+  outline: 3px solid rgba(215, 181, 140, 0.45);
   outline-offset: 5px;
-}
-
-.mark {
-  margin: 0;
-}
-
-.mark img {
-  display: block;
-  width: 100%;
-  max-height: 560px;
-  object-fit: contain;
-  mix-blend-mode: multiply;
 }
 
 .status {
@@ -111,7 +113,7 @@ h1 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
   width: min(1120px, calc(100% - 40px));
-  margin: 0 auto 48px;
+  margin: 42px auto 48px;
   border: 1px solid var(--line);
   background: var(--line);
 }
@@ -119,20 +121,20 @@ h1 {
 .status div {
   min-height: 150px;
   padding: 24px;
-  background: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.72);
 }
 
 .status h2 {
   margin: 0 0 10px;
   font-size: 1.05rem;
   line-height: 1.2;
+  color: var(--blue);
 }
 
 .status p,
 .footer p {
   margin: 0;
   color: var(--muted);
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 0.94rem;
   line-height: 1.55;
 }
@@ -145,18 +147,29 @@ h1 {
 
 @media (max-width: 820px) {
   .hero {
-    grid-template-columns: 1fr;
-    min-height: auto;
-    padding-top: 32px;
+    min-height: 680px;
   }
 
-  .mark {
-    order: -1;
+  .hero-image {
+    background:
+      linear-gradient(0deg, rgba(17, 23, 28, 0.94) 0%, rgba(17, 23, 28, 0.78) 48%, rgba(17, 23, 28, 0.18) 100%),
+      url("./assets/old-chemistry-corporate-lab-hero.png") 64% center / cover no-repeat;
   }
 
-  .mark img {
-    width: min(100%, 460px);
-    margin: 0 auto;
+  .copy {
+    padding-bottom: 42px;
+  }
+
+  h1 {
+    font-size: clamp(3.25rem, 17vw, 4.85rem);
+  }
+
+  .lede {
+    margin-top: 22px;
+  }
+
+  .body {
+    margin-top: 18px;
   }
 
   .status {
